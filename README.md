@@ -12,14 +12,14 @@ This repository contains a multi-step form built using React and Material-UI's s
 ## Installation
 Follow these steps to run the project locally:
 
-1. Clone the repository:
+1. **Clone the repository:**
    git clone https://github.com/your-username/multi-step-form.git
 
-2. Install Dependencies:
+2. **Install Dependencies:**
     cd multi-step-form
     npm install
 
-3. Start the development server:
+3. **Start the development server:**
     npm start
 
 ## Usage
