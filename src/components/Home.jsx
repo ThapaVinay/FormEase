@@ -5,7 +5,7 @@ import StepButton from "@material-ui/core/StepButton";
 import { makeStyles } from "@material-ui/core/styles";
 import PartyInfo from "./Page 2/PartyInfo";
 import Logistics from "./Page 3/Logistics";
-import AdditionalParties from "./Page 2/AdditionalParties";
+import Additonal from "./Page 4/Additonal";
 
 function getSteps() {
   return [
@@ -59,7 +59,7 @@ const getStepContent = (step) => {
     case 2:
       return <Logistics />;
     case 3:
-      return <AdditionalParties />;
+      return <Additonal />;
     default:
       return null;
   }
@@ -81,37 +81,39 @@ export default function Home() {
         height: "100%",
       }}
     >
-        <Stepper
-          alternativeLabel
-          nonLinear
-          activeStep={activeStep}
-          connector={<Connector classes={classes} />}
-          classes={{ root: classes.step }}
-        >
-          {steps.map((label, index) => {
-            return (
-              <Step key={label}>
-                <StepButton
-                  onClick={handleStep(index)}
-                  classes={{ root: classes.stepButton }}
+      <Stepper
+        alternativeLabel
+        nonLinear
+        activeStep={activeStep}
+        connector={<Connector classes={classes} />}
+        classes={{ root: classes.step }}
+      >
+        {steps.map((label, index) => {
+          return (
+            <Step key={label}>
+              <StepButton
+                onClick={handleStep(index)}
+                classes={{ root: classes.stepButton }}
+              >
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "black",
+                    fontSize: 24,
+                    fontFamily: "Open Sans",
+                    fontWeight: "300",
+                  }}
                 >
-                  <div
-                    style={{
-                      textAlign: "center",
-                      color: "black",
-                      fontSize: 24,
-                      fontFamily: "Open Sans",
-                      fontWeight: "300",
-                    }}
-                  >
-                    {label}
-                  </div>
-                </StepButton>
-              </Step>
-            );
-          })}
-        </Stepper>
-      <div style={{ margin: "40px" }}>{getStepContent(activeStep)}</div>
+                  {label}
+                </div>
+              </StepButton>
+            </Step>
+          );
+        })}
+      </Stepper>
+      <div style={{ margin: "40px", marginLeft: "60px" }}>
+        {getStepContent(activeStep)}
+      </div>
     </div>
   );
 }
