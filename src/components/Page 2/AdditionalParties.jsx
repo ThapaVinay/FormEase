@@ -24,7 +24,8 @@ const AdditionalParties = () => {
             fontSize: 18,
             fontFamily: "Open Sans",
             fontWeight: "300",
-            paddingLeft: "100px",
+            paddingLeft: "40px",
+            paddingTop: "30px",
           }}
         >
           <i class="fa-solid fa-xmark"></i> ADDITIONAL PARTIES

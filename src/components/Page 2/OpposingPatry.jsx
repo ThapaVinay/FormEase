@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AdditionalParties from "./AdditionalParties";
 
 const OpposingParty = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -440,7 +441,9 @@ const OpposingParty = () => {
                 alignItems: "center",
               }}
             >
-              <div style={{ fontWeight: "800", marginRight: "-10px" }}>+</div>
+              <div style={{ fontWeight: "800", marginRight: "-10px" }}>
+                <i class="fa-solid fa-plus"></i>
+              </div>
               <div
                 style={{
                   display: "flex",
@@ -509,6 +512,7 @@ const OpposingParty = () => {
               </div>
             </div>
           </form>
+          <AdditionalParties />
         </div>
       )}
     </div>

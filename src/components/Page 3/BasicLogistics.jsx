@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Switch, Space } from "antd";
 
 const BasicLogistics = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentValue, setCurrentValue] = useState(true);
 
   const [formData, setFormData] = useState({
     field1: "",
@@ -22,7 +24,6 @@ const BasicLogistics = () => {
     console.log("Form submitted:", formData);
     setIsOpen(false);
   };
-
 
   return (
     <div style={{ margin: "20px" }}>
@@ -206,7 +207,6 @@ const BasicLogistics = () => {
                       padding: "10px",
                     }}
                     placeholder="Type Here"
-            
                   />
                 </div>
               </div>
@@ -231,22 +231,27 @@ const BasicLogistics = () => {
                     padding: "5px",
                   }}
                 >
-                  Billing Address
+                  Start Time
                 </label>
-                <input
-                  type="text"
-                  name="billing"
-                  value={formData.field1}
-                  onChange={handleChange}
-                  style={{
-                    width: "250px",
-                    height: "27px",
-                    borderRadius: "5px",
-                    borderWidth: "1px",
-                    padding: "10px",
-                  }}
-                  placeholder="Type Here"
-                />
+                <div style={{ marginLeft: "-40px", width: "320px" }}>
+                  <i
+                    class="fa-solid fa-circle-question"
+                    style={{ fontSize: "20px", padding: "10px" }}
+                  ></i>
+                  <input
+                    type="text"
+                    name="billing"
+                    value={formData.field1}
+                    onChange={handleChange}
+                    style={{
+                      width: "150px",
+                      height: "27px",
+                      borderRadius: "5px",
+                      borderWidth: "1px",
+                      padding: "11px",
+                    }}
+                  />
+                </div>
               </div>
 
               <div
@@ -263,25 +268,37 @@ const BasicLogistics = () => {
                     fontSize: 14,
                     fontFamily: "Open Sans",
                     fontWeight: "300",
-                    padding: "5px",
+                    padding: "12px",
                   }}
-                >
-                  Zip/Postal Code
-                </label>
-                <input
-                  type="text"
-                  name="postalcode"
-                  value={formData.field1}
-                  onChange={handleChange}
-                  style={{
-                    width: "250px",
-                    height: "27px",
-                    borderRadius: "5px",
-                    borderWidth: "1px",
-                    padding: "10px",
-                  }}
-                  placeholder="Input"
-                />
+                ></label>
+                <div style={{ marginLeft: "-40px", width: "310px" }}>
+                  <i
+                    class="fa-solid fa-circle-question"
+                    style={{ fontSize: "20px", padding: "10px" }}
+                  ></i>
+                  <select
+                    name="firmname"
+                    value={formData.field1}
+                    onChange={handleChange}
+                    style={{
+                      width: "190px",
+                      height: "51px",
+                      borderRadius: "5px",
+                      borderWidth: "1px",
+                      padding: "12px",
+                      color: "gray",
+                    }}
+                  >
+                    <option
+                      value=""
+                      disabled
+                      selected
+                      style={{ display: "none" }}
+                    ></option>
+                    <option value="firm1">Court 1</option>
+                    <option value="firm2">Court 2</option>
+                  </select>
+                </div>
               </div>
 
               <div
@@ -301,7 +318,7 @@ const BasicLogistics = () => {
                     padding: "5px",
                   }}
                 >
-                  Country/City
+                  Time Zone
                 </label>
                 <input
                   type="text"
@@ -313,91 +330,17 @@ const BasicLogistics = () => {
                     height: "27px",
                     borderRadius: "5px",
                     borderWidth: "1px",
-                    padding: "10px",
+                    padding: "11px",
                   }}
-                  placeholder="Canada"
                 />
               </div>
             </div>
 
             {/* for the third row of form */}
-            <div style={{ display: "flex", paddingLeft: "180px" }}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  padding: "20px",
-                  paddingRight: "50px",
-                }}
-              >
-                <label
-                  htmlFor="role"
-                  style={{
-                    fontSize: 14,
-                    fontFamily: "Open Sans",
-                    fontWeight: "300",
-                    padding: "5px",
-                  }}
-                >
-                  Role
-                </label>
-                <select
-                  name="role"
-                  value={formData.field1}
-                  onChange={handleChange}
-                  style={{
-                    width: "270px",
-                    height: "49px",
-                    borderRadius: "5px",
-                    borderWidth: "1px",
-                    padding: "10px",
-                  }}
-                >
-                  <option value="role1">Role 1</option>
-                  <option value="role2">Role 2</option>
-                </select>
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  padding: "20px",
-                  paddingRight: "50px",
-                }}
-              >
-                <label
-                  htmlFor="postalcode"
-                  style={{
-                    fontSize: 14,
-                    fontFamily: "Open Sans",
-                    fontWeight: "300",
-                    padding: "5px",
-                  }}
-                >
-                  Name of represented Client
-                </label>
-                <input
-                  type="text"
-                  name="postalcode"
-                  value={formData.field1}
-                  onChange={handleChange}
-                  style={{
-                    width: "250px",
-                    height: "27px",
-                    borderRadius: "5px",
-                    borderWidth: "1px",
-                    padding: "10px",
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* for the fourth row of form */}
             <div
               style={{
                 display: "flex",
-                paddingLeft: "180px",
+                paddingLeft: "20px",
                 alignItems: "center",
               }}
             >
@@ -418,7 +361,7 @@ const BasicLogistics = () => {
                     padding: "5px",
                   }}
                 >
-                  Lead counsel(s) information
+                  Arbitrator(s)
                 </label>
                 <input
                   type="text"
@@ -432,7 +375,7 @@ const BasicLogistics = () => {
                     borderWidth: "1px",
                     padding: "10px",
                   }}
-                  placeholder="Name"
+                  placeholder="Chair's Name"
                 />
               </div>
               <div style={{ paddingRight: "10px", fontWeight: "1000" }}>
@@ -473,15 +416,17 @@ const BasicLogistics = () => {
               </div>
             </div>
 
-            {/* for the fifth row of form */}
+            {/* for the fourth row of form */}
             <div
               style={{
                 display: "flex",
-                paddingLeft: "180px",
+                paddingLeft: "15px",
                 alignItems: "center",
               }}
             >
-              <div style={{ fontWeight: "800", marginRight: "-10px" }}>+</div>
+              <div style={{ fontWeight: "800", marginRight: "-10px" }}>
+                <i class="fa-solid fa-plus"></i>
+              </div>
               <div
                 style={{
                   display: "flex",
@@ -511,7 +456,7 @@ const BasicLogistics = () => {
                     borderWidth: "1px",
                     padding: "10px",
                   }}
-                  placeholder="Add Additional councel"
+                  placeholder="Add additional arbitrator"
                 />
               </div>
               <div style={{ paddingRight: "10px", fontWeight: "1000" }}>
@@ -548,6 +493,35 @@ const BasicLogistics = () => {
                   }}
                 />
               </div>
+            </div>
+
+            {/* for fifth row */}
+            <div
+              style={{
+                color: "black",
+                fontSize: 16,
+                fontFamily: "Open Sans",
+                fontWeight: "300",
+                wordWrap: "break-word",
+                display: "flex",
+                paddingTop: "20px",
+                paddingLeft: "40px",
+              }}
+            >
+              Tribunal secretary?
+              <Space direction="horizontal" style={{ paddingLeft: "70px" }}>
+                <Switch
+                  style={{
+                    backgroundColor: currentValue ? "green" : "red",
+                  }}
+                  defaultChecked={true}
+                  checkedChildren="Yes"
+                  unCheckedChildren="No"
+                  onChange={(value) => {
+                    setCurrentValue(value);
+                  }}
+                />
+              </Space>
             </div>
           </form>
         </div>
